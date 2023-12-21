@@ -1,5 +1,5 @@
 # GemTowerDefense
-A Java-based tower defense game.  Made with Eli Brant, Ben Callaghan and Emmanuel Shoneyin
+A Java-based tower defense game.  Made with EB, BC and ES
 
 ## User Stories
 1. As a player, I want to be able to place different types of towers on the map so that I can use different strategies and tactics to defend against enemy waves
