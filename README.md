@@ -21,20 +21,20 @@ ___
 
 3. As a player, I want to be able to upgrade my towers using gems so that I can strengthen my defenses and strategies over multiple waves of progressively harder enemies
 
-- gems can be mined from rocks place around the maps.
-- gems have differnt colour types 
+- gems can be mined from rocks placed around the maps.
+- gems have different colour types 
 - Towers can be upgraded to increase their range, damage, attack speed though adding gems to the towers.  
-- gems are upgradble and can be swaped in and out 
-- gems have multiple levels and cost in-game resources like common and can be upgraded to uncommon, rare, lengendary and mithic.
+- gems are upgradable and can be swaped in and out 
+- gems have multiple levels and cost in-game resources like common and can be upgraded to uncommon, rare, lengendary and mythic.
 - towers upgraded by gems have visible effects like increased range or damage numbers and other possble affects
   
 ___
 
 4. As a player, I want to earn cash from defeating enemies to purchase new towers and upgrades so that I can customize and optimize my defenses over time
 
-- Enemies drop cash when defeated
+- Enemies drop cash when defeated, can be picked up by cursor/tap
 - New towers and gem upgrades have a displayed cost that is deducted from the player's cash on purchase  
-- Cash is accumulated between waves and from upgrades to afford more powerful towers  
+- Cash is accumulated between waves by player to afford more powerful towers  
   
 ___
 
@@ -52,14 +52,17 @@ ___
 ___
 
 ## BackLog
-    - basic tower fire at enemys.
+    - basic tower fire at enemies.
     - basic tower can be placed on map using mouse.
-    - spwaners spwan basic enemys.
-    - enemys have health bars that are removed when they run out of HP.
-    - file is read to spwan in path and spawn rocks where the path is not.
-    - rocks are destroyed and have a random changes to drop a common gem type.
+    - spawners spawn basic enemies.
+    - enemies have health bars that are removed when they run out of HP.
+    - file is read to spawn in path and spawn rocks where the path is not.
+    - rocks are destroyed and have a random chance to drop a common gem type.
     - gems can be placed onto towers to upgrade them in many possble ways (TBT).
-    - impement a basic GUI on the right side of the players screen.
+    - implement a basic GUI on the right side of the players screen.
     - basic title screen for starting the game.
-    - find art assests and sound assets for the game.
-  
+    - find art assets and sound assets for the game.
+    - Enemy has a set speed, and health and follows a path 
+    - Types of enemies: Goblins, ogors, slimes,gremlins and a dragon boss
+    - Slimes are slow but low hp, ogors are slow and tanky
+    - Goblins are fast but low hp and the Gremlins sprint when they get hit
