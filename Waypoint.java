@@ -15,6 +15,7 @@ public class Waypoint extends Actor
     private int size = 60;
     private int index;
     private Waypoint next;
+    private SpawnerWPath spawner;//this holds the spawner that waypont belongs to
     
     public Waypoint(int x, int y){
         GreenfootImage img = getImage();

@@ -15,7 +15,7 @@ public class Enemy extends AbstEnemy
     
     
     public Enemy(){
-        path = new Waypoint[]{new Waypoint()};
+        path = new Waypoint[]{new Waypoint(100,100)};
     }
     
     public Enemy(Waypoint [] p){

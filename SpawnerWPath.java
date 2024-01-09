@@ -2,17 +2,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Write a description of class SpawnerWPath here.
+ * Mr R - Don't use this yet
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Rowbottom
+ * @version Jan 9 2024
  */
 public class SpawnerWPath extends Spawner
 {
     private Waypoint[] path;
     
     private ArrayList<Enemy> waves = new ArrayList<Enemy>();
-
+    
+    String fileName;
     
     int[][] wave = new int[10][2];
     
@@ -20,11 +21,25 @@ public class SpawnerWPath extends Spawner
     int waveNum = 1;
     
     public SpawnerWPath(){
+        path = new Waypoint[50];
+        //path = new ArrayList<Waypoint>();
+        setPath("waypoints.txt");
+        
+        //create the wave timer
+        waveTimer = new SimpleTimer();
+        //create the spawn timer
+        spawnTimer = new SimpleTimer();
+        spawnTime = 5000;//initial time before wave
+        waveTime = 0;
+        loadWave();
+    }
+    
+    public SpawnerWPath(String fileName){
 
-         path = new Waypoint[50];
+        path = new Waypoint[50];
         //path = new ArrayList<Waypoint>();
         
-        setPath("waypoints.txt");
+        setPath(fileName);
         
         //create the wave timer
         waveTimer = new SimpleTimer();
@@ -93,12 +108,12 @@ public class SpawnerWPath extends Spawner
     
     private void loadWave(){
         for(int i = 0; i < wave.length; i++){
-            wave[i][0] = 1;
+            wave[i][0] = 1;//these store the time between next spawn
             wave[i][1] = 600;
             waves.add(new Enemy(path));//int from wave[i][0] should go into the constructor
         }
         wave[1][1] = 100;
         wave[8][1] = 1200;
-        wave[9][1] = 5000;     
+        wave[9][1] = 5000;   //time to next wave  
     }
 }
