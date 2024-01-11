@@ -23,7 +23,6 @@ public class Waypoint extends Actor
        // setImage(img);
         this.x = x;
         this.y = y;
-
     }  
     
     /**
@@ -32,6 +31,7 @@ public class Waypoint extends Actor
      */
     public void act() 
     {
+        //need to swap the game.getPath() to spawner.getPath()
         //get the world reference as a game;
         if(game == null){
             game = (Game)getWorld();
@@ -40,7 +40,6 @@ public class Waypoint extends Actor
             if(index<path.size()-1){
                 next = path.get(index+1);    
             }
-            
         }
         //also set the next reference
     }
@@ -69,6 +68,7 @@ public class Waypoint extends Actor
         else{
             return 0;
         }
-    }    
+    }
+    
     
 }
