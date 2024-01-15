@@ -9,7 +9,9 @@ import java.util.ArrayList;
  */
 public class Game extends World
 {
-    SpawnerWPath spawner; 
+    public final boolean DEBUG = false;
+    
+    private SpawnerWPath spawner; 
     Basic_Tower tower1;
     ArrayList <Waypoint> path;
     /**
@@ -32,7 +34,8 @@ public class Game extends World
     
     
     public ArrayList<Waypoint> getPath(){
-         return null;   
+         return path;   
     }
+    
 }
 

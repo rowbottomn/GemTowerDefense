@@ -9,16 +9,26 @@ import java.util.ArrayList;
  */
 public class Enemy extends AbstEnemy
 {
-    private Waypoint [] path;
-    //private ArrayList<Waypoint> path;
+    //private Waypoint [] path;
+    private ArrayList<Waypoint> path;
     private int next;
     
     
     public Enemy(){
-        path = new Waypoint[]{new Waypoint(100,100)};
+        //path = new Waypoint[]{new Waypoint(100,100)};
     }
     
     public Enemy(Waypoint [] p){
+        path = new ArrayList<Waypoint>();
+        for (Waypoint w : p){
+            path.add(w);
+        }
+        
+        next = 0;
+    }
+    
+    public Enemy(ArrayList<Waypoint> p){
+        
         path = p;
         next = 0;
     }
@@ -32,9 +42,10 @@ public class Enemy extends AbstEnemy
      */
     public void act()
     {
-        if(path[next]!=null){
-            navigate(path[next].getX(), path[next].getY());
-        }//navigate(path.get(next).getX(), path.get(next).getY());
+        /*if(path.get(next)!=null){
+            navigate(path.get(next).getX(), pathget(next).getY());
+        }//*/
+        navigate(path.get(next).getX(), path.get(next).getY());
         
     }
     
@@ -50,8 +61,8 @@ public class Enemy extends AbstEnemy
         //if I am close enough to the x, y
         if(dist(x,y)<speed ){
             next++;//go to the next waypoin
-             if(next>=path.length||path[next] == null){
-             //if(next>=path.size()){
+             //if(next>=path.length||path[next] == null){
+             if(next>=path.size()){
                 //next = 0;
                 //setLocation(-60,60);
                 //remove from world

@@ -20,9 +20,14 @@ public class Waypoint extends Actor
     public Waypoint(int x, int y){
         GreenfootImage img = getImage();
         img.scale(size,size);
-       // setImage(img);
+       
         this.x = x;
         this.y = y;
+    }  
+    
+    public Waypoint(SpawnerWPath spawner, int x, int y){
+        this(x,y);
+        this.spawner = spawner;
     }  
     
     /**
@@ -31,17 +36,7 @@ public class Waypoint extends Actor
      */
     public void act() 
     {
-        //need to swap the game.getPath() to spawner.getPath()
-        //get the world reference as a game;
-        if(game == null){
-            game = (Game)getWorld();
-            path = game.getPath();
-            index = path.indexOf(this);
-            if(index<path.size()-1){
-                next = path.get(index+1);    
-            }
-        }
-        //also set the next reference
+        //largely empty currently
     }
     
     public Waypoint getNext(){
@@ -70,5 +65,14 @@ public class Waypoint extends Actor
         }
     }
     
-    
+    public void addedToWorld(World world){
+        System.out.println("added to the world");
+        game = (Game)getWorld();//get a world reference
+        path = spawner.getPath();//to give the path to the Enemy objects
+        setLocation(x, y);//to move to the proper spot in the world
+        index = path.indexOf(this);//so it can pass along the next waypoint
+        if(index<path.size()-1){
+            next = path.get(index+1);    
+        }
+    }
 }
