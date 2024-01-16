@@ -14,6 +14,7 @@ public class BaseObjective extends Actor
      */
     private int health;
     
+    //health gets decremented with each enemy hitting it
     public BaseObjective(){
         health = 2000;
         GreenfootImage img = getImage();
