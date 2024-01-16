@@ -22,9 +22,10 @@ public class Game extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1040, 600, 1, false); 
-        spawner = new SpawnerWPath();
+        //spawner = new SpawnerWPath();
+        spawner = new SpawnerWPath("map1.txt");
         tower1 = new Basic_Tower();
-        addObject(spawner,300,300);
+        addObject(spawner,-60,60);
         addObject(tower1,600,300);
         addObject(new Basic_Tower(), 300, 500);
 
