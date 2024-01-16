@@ -38,6 +38,17 @@ public class Bullet extends Actor
             //System.out.println("outside");
             getWorld().removeObject(this);
         }
+        
+        getWorld().showText("", getWorld().getWidth()/2, 100);
+        Enemy victim = (Enemy)getOneIntersectingObject(Enemy.class);
+        if(victim !=null){
+            getWorld().showText("Direct Hit", getWorld().getWidth()/2, 100);
+            //apply damage
+            victim.setHealth(victim.getHealth()-dmg);
+            //remove bullet
+            getWorld().removeObject(this);
+            return;
+        }
     }
     
     protected void addedToWorld(World world){

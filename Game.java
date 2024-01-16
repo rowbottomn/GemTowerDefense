@@ -13,6 +13,7 @@ public class Game extends World
     
     private SpawnerWPath spawner; 
     Basic_Tower tower1;
+    private BaseObjective base;
     ArrayList <Waypoint> path;
     /**
      * Constructor for objects of class Game.
@@ -25,10 +26,11 @@ public class Game extends World
         //spawner = new SpawnerWPath();
         spawner = new SpawnerWPath("map1.txt");
         tower1 = new Basic_Tower();
-        addObject(spawner,-60,60);
+        base = new BaseObjective();
+        addObject(spawner,-60,-60);
+
         addObject(tower1,600,300);
         addObject(new Basic_Tower(), 300, 500);
-
         
     }
     
@@ -36,6 +38,10 @@ public class Game extends World
     
     public ArrayList<Waypoint> getPath(){
          return path;   
+    }
+    
+    public BaseObjective getBase(){
+        return base;
     }
     
 }

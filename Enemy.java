@@ -12,6 +12,8 @@ public class Enemy extends AbstEnemy
     //private Waypoint [] path;
     private ArrayList<Waypoint> path;
     private int next;
+    private int health = 25;
+    private HealthBar hb;
     
     
     public Enemy(){
@@ -76,5 +78,22 @@ public class Enemy extends AbstEnemy
         int dx = x1 - getX();
         int dy = y1 - getY();
         return (int)Math.sqrt(dx*dx+dy*dy);
+    }
+    
+    public void addedToWorld(){
+        hb = new HealthBar(this);
+        if(health < 1){
+           getWorld().removeObject(this);
+           return;
+        }
+        
+    }
+    
+    public void setHealth(int h){
+        health = h;
+    }
+    
+    public int getHealth(){
+        return health;
     }
 }
