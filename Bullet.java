@@ -39,6 +39,7 @@ public class Bullet extends Actor
             getWorld().removeObject(this);
         }
         
+        getWorld().showText("", getWorld().getWidth()/2, 100);
         Enemy victim = (Enemy)getOneIntersectingObject(Enemy.class);
         if(victim !=null){
             getWorld().showText("Direct Hit", getWorld().getWidth()/2, 100);

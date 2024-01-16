@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class baseObjective extends Actor
+public class BaseObjective extends Actor
 {
     /**
      * Act - do whatever the baseObjective wants to do. This method is called whenever
@@ -14,8 +14,10 @@ public class baseObjective extends Actor
      */
     private int health;
     
-    public baseObjective(){
+    public BaseObjective(){
         health = 2000;
+        GreenfootImage img = getImage();
+        img.scale(120,120);
     }
     
     public void act()

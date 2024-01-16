@@ -102,6 +102,12 @@ public class SpawnerWPath extends Spawner
                 world.addObject(w, 0, 0);
             }
         }
+        //get last waypoint
+        Waypoint last = path.get(path.size()-1);
+        
+        //add the base object from the world
+        game.addObject(game.getBase(),last.getX()+90,last.getY()-30);
+        
     }
     
     private void loadWave(){
