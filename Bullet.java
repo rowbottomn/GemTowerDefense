@@ -16,6 +16,7 @@ public class Bullet extends Actor
     
     public Bullet(Enemy e){
         victim = e;
+        dmg = 5;
         speed = 20;
     }
     
@@ -34,15 +35,15 @@ public class Bullet extends Actor
     public void act()
     {
         move(speed);
-        if(isAtEdge()){
-            //System.out.println("outside");
+        if(isAtEdge()){//might need to resolve this.
             getWorld().removeObject(this);
+            return;//SO IMPORTANT!
         }
         
-        getWorld().showText("", getWorld().getWidth()/2, 100);
+        //getWorld().showText("", getWorld().getWidth()/2, 100);
         Enemy victim = (Enemy)getOneIntersectingObject(Enemy.class);
         if(victim !=null){
-            getWorld().showText("Direct Hit", getWorld().getWidth()/2, 100);
+            //getWorld().showText("Direct Hit", getWorld().getWidth()/2, 100);
             //apply damage
             victim.setHealth(victim.getHealth()-dmg);
             //remove bullet

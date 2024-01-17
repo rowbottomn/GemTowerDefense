@@ -30,15 +30,6 @@ public class Waypoint extends Actor
         this.spawner = spawner;
     }  
     
-    /**
-     * Act - do whatever the Waypoint wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-        //largely empty currently
-    }
-    
     public Waypoint getNext(){
         return next;
     }
@@ -66,7 +57,7 @@ public class Waypoint extends Actor
     }
     
     public void addedToWorld(World world){
-        System.out.println("added to the world");
+        Util.say("added to the world");
         game = (Game)getWorld();//get a world reference
         path = spawner.getPath();//to give the path to the Enemy objects
         setLocation(x, y);//to move to the proper spot in the world

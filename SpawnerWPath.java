@@ -76,7 +76,7 @@ public class SpawnerWPath extends Spawner
         //Use the array manager to turn the string into a 2D int array
         int[][] intArr = am.fillArrayWithData(tempString);
             //print out the int array to make sure it worked
-        if(game.DEBUG==false){
+        if(game.DEBUG){
             am.printArray(intArr);
             System.out.println(tempString);
         }

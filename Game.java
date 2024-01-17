@@ -25,10 +25,10 @@ public class Game extends World
         super(1040, 600, 1, false); 
         //spawner = new SpawnerWPath();
         spawner = new SpawnerWPath("map1.txt");
+
         tower1 = new Basic_Tower();
         base = new BaseObjective();
-        addObject(spawner,-60,-60);
-
+        addObject(spawner,-60,60);
         addObject(tower1,600,300);
         addObject(new Basic_Tower(), 300, 500);
         

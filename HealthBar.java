@@ -28,13 +28,8 @@ public class HealthBar extends Actor
         // color = Color(0, 255, 0);
         this.maxHealth = o.getHealth();
         owner = o;
-        size = owner.getImage().getHeight()/2;
-        owner.getWorld().addObject(this, owner.getX(), owner.getY()-size);
-      
-      
+
     }
-    
-    
     
     public void act()
     {
@@ -55,30 +50,33 @@ public class HealthBar extends Actor
         //if we nade it this far then we have an owner and its in the world
         //so update the health
         update();
+        
     }
     
      private void kys(){
         getWorld().removeObject(this);
+        Util.say("hb removed");
+
     }
     
      public void update() 
     {
-       //first update then set up some stuff
-       if (temp == null){
-           temp = getImage();
-           temp.clear();
-       }
-       //update health   
+       try{ 
+
+       //update health
+       
        health = owner.getHealth();
-       //move the bar to the right spot
-       setLocation(owner.getX(), owner.getY()-size);
-       //if we are full health or dead then no update required
+              //if we are full health or dead then no update required
        if (health == maxHealth|| health <= 0){return;}
        
+       //move the bar to the right spot
+       setLocation(owner.getX(), owner.getY()-size);
+
        //update the color
        try{//not really needed anymore
-          red = (int)(120+134*(1. - ((double)health/(double)maxHealth)));
-          green = (int)( 254 *((double)health/(double)maxHealth));
+          Util.say("hb color attempt"+health);
+          red = (int)(120.+134.*(1. - ((double)health/(double)maxHealth)));
+          green = (int)( 254. *((double)health/(double)maxHealth));
           color = new Color(red,green, 0);
        }
        catch(Exception e){
@@ -89,6 +87,20 @@ public class HealthBar extends Actor
        temp.setColor(color); 
        temp.fill();
        temp.scale(1+50*health/maxHealth, 8);
-
+       setImage(temp);
+       Util.say("hb updated"+this.toString());
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
     }    
+    
+    public void addedToWorld(World world){
+        
+        size = owner.getImage().getHeight()/2;
+        owner.getWorld().addObject(this, owner.getX(), owner.getY()-size); 
+        temp = getImage();
+        temp.clear();
+        Util.say("hb added to world");
+    }
 }

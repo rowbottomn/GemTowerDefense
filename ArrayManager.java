@@ -22,7 +22,7 @@ public class ArrayManager
         fm = new FileManager();
         //load map file
         String input = fm.read(fileName);
-        //System.out.println(input);
+        sayln(input);
         String[] lines = input.split(";");
         int rows = lines.length;
         String[] temp = lines[0].split(",");

@@ -14,8 +14,7 @@ public class Enemy extends AbstEnemy
     private int next;
     private int health = 25;
     private HealthBar hb;
-    
-    
+
     public Enemy(){
         //path = new Waypoint[]{new Waypoint(100,100)};
     }
@@ -44,10 +43,10 @@ public class Enemy extends AbstEnemy
      */
     public void act()
     {
-        /*if(path.get(next)!=null){
-            navigate(path.get(next).getX(), pathget(next).getY());
-        }//*/
-        navigate(path.get(next).getX(), path.get(next).getY());
+        if(path.get(next)!=null){
+            navigate(path.get(next).getX(), path.get(next).getY());
+        }
+        //navigate(path.get(next).getX(), path.get(next).getY());
         
     }
     
@@ -63,14 +62,19 @@ public class Enemy extends AbstEnemy
         //if I am close enough to the x, y
         if(dist(x,y)<speed ){
             next++;//go to the next waypoin
-             //if(next>=path.length||path[next] == null){
-             if(next>=path.size()){
-                //next = 0;
-                //setLocation(-60,60);
+
+            if(next>=path.size()){
+
+                //play explosion sound
+                //make explosion
+                //do damage to castle
                 //remove from world
                 getWorld().removeObject(this);
-                //do damage to castle
+                
             }
+        }
+        if(health<1){
+            getWorld().removeObject(this);
         }
     }
     
@@ -80,17 +84,18 @@ public class Enemy extends AbstEnemy
         return (int)Math.sqrt(dx*dx+dy*dy);
     }
     
-    public void addedToWorld(){
+    public void addedToWorld(World world){
         hb = new HealthBar(this);
-        if(health < 1){
-           getWorld().removeObject(this);
-           return;
-        }
+        world.addObject(hb, -1000,-1000);
+        //does nto complete here
+        Util.say(hb.toString());
         
     }
     
     public void setHealth(int h){
         health = h;
+        Util.say("Enemy changing health "+health);
+
     }
     
     public int getHealth(){
