@@ -27,14 +27,30 @@ public class Game extends World
         spawner = new SpawnerWPath("map1.txt");
 
         tower1 = new Basic_Tower();
+        
         base = new BaseObjective();
         addObject(spawner,-60,60);
         addObject(tower1,600,300);
         addObject(new Basic_Tower(), 300, 500);
         
+        setupGUI();
     }
     
-    
+    public void setupGUI(){
+        UI gui = new UI();
+        gui.setUpGrid();
+        
+        addObject(gui.l1, 528, 50);
+        addObject(gui.l2, 525, 80);
+        addObject(gui.l3, 490, 110);
+        addObject(gui.getButton(1, 0), 550, 160);
+        addObject(gui.getButton(0, 0), 490, 160);
+        addObject(gui.getButton(1, 1), 550, 220);
+        addObject(gui.getButton(0, 1), 490, 220);
+        
+        
+        System.out.println(gui);
+    }
     
     public ArrayList<Waypoint> getPath(){
          return path;   
