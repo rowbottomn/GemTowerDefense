@@ -68,8 +68,15 @@ public class Enemy extends AbstEnemy
                 //play explosion sound
                 //make explosion
                 //do damage to castle
-                //remove from world
-                getWorld().removeObject(this);
+                BaseObjective victim = (BaseObjective)getOneIntersectingObject(BaseObjective.class);
+                if(victim !=null){
+                    //getWorld().showText("Direct Hit", getWorld().getWidth()/2, 100);
+                    //apply damage
+                    victim.setHealth(victim.getHealth()-dam);
+                    //remove bullet
+                    getWorld().removeObject(this);
+                    return;
+                }
                 
             }
         }
