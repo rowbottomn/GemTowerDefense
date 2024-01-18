@@ -9,34 +9,23 @@ import java.util.ArrayList;
  */
 public class Enemy extends AbstEnemy
 {
-    //private Waypoint [] path;
     private ArrayList<Waypoint> path;
     private int next;
-    private int health = 25;
-    private HealthBar hb;
 
-    public Enemy(){
-        //path = new Waypoint[]{new Waypoint(100,100)};
-    }
+    private HealthBar hb;
     
-    public Enemy(Waypoint [] p){
-        path = new ArrayList<Waypoint>();
-        for (Waypoint w : p){
-            path.add(w);
-        }
-        
-        next = 0;
+    public Enemy(){
+        super();
     }
     
     public Enemy(ArrayList<Waypoint> p){
-        
+        dmg = 25;
+        speed = 10;
+        hp = 20;
         path = p;
         next = 0;
     }
-    /*public Enemy(ArrayList <Waypoint> p){
-        path = p;
-        next = 0;
-    } */ 
+
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -72,7 +61,7 @@ public class Enemy extends AbstEnemy
                 if(victim !=null){
                     //getWorld().showText("Direct Hit", getWorld().getWidth()/2, 100);
                     //apply damage
-                    victim.setHealth(victim.getHealth()-dam);
+                    victim.setHealth(victim.getHealth()-dmg);
                     //remove bullet
                     getWorld().removeObject(this);
                     return;
@@ -80,7 +69,7 @@ public class Enemy extends AbstEnemy
                 
             }
         }
-        if(health<1){
+        if(hp<1){
             getWorld().removeObject(this);
         }
     }
@@ -92,6 +81,7 @@ public class Enemy extends AbstEnemy
     }
     
     public void addedToWorld(World world){
+        
         hb = new HealthBar(this);
         world.addObject(hb, -1000,-1000);
         //does nto complete here
@@ -100,12 +90,12 @@ public class Enemy extends AbstEnemy
     }
     
     public void setHealth(int h){
-        health = h;
-        Util.say("Enemy changing health "+health);
+        hp = h;
+        Util.say("Enemy changing health "+hp);
 
     }
     
     public int getHealth(){
-        return health;
+        return hp;
     }
 }

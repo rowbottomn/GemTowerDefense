@@ -10,11 +10,14 @@ import java.util.ArrayList;
 public class Game extends World
 {
     public final boolean DEBUG = false;
-    
+ 
     private SpawnerWPath spawner; 
     Basic_Tower tower1;
     private BaseObjective base;
     ArrayList <Waypoint> path;
+
+    DraggableExample thing;
+    
     /**
      * Constructor for objects of class Game.
      * 
@@ -34,6 +37,7 @@ public class Game extends World
         addObject(new Basic_Tower(), 300, 500);
         
         setupGUI();
+
     }
     
     public void setupGUI(){

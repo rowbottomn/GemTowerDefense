@@ -11,14 +11,14 @@
         protected int speed;
         protected int hp;
         protected Actor target;
-        protected int dam;
-        protected World world;
+        protected int dmg;
+        protected Game world;
         protected GreenfootImage img;
         
         public AbstEnemy(){
             speed = 5;
             hp = 5;
-            dam = 1;
+            dmg = 1;
             img = getImage();
         }
         
