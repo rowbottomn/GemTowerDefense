@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Enemy extends AbstEnemy
 {
     private ArrayList<Waypoint> path;
-    private int next;
+    public int next;
 
     private HealthBar hb;
     
@@ -20,7 +20,7 @@ public class Enemy extends AbstEnemy
     
     public Enemy(ArrayList<Waypoint> p){
         dmg = 25;
-        speed = 10;
+        speed = 5;
         hp = 20;
         path = p;
         next = 0;
