@@ -17,7 +17,7 @@ public class SpawnerWPath extends Spawner
     
     String fileName;//the file of the waypoints
     
-    int[][] wave = new int[10][2];//the coordinates of the 
+    int[][] wave = new int[10][2];
     
     int levelNum = 1;
     int waveNum = 1;
@@ -112,8 +112,11 @@ public class SpawnerWPath extends Spawner
     
     private void loadWave(){
         for(int i = 0; i < wave.length; i++){
-            wave[i][0] = 1;//these store the time between next spawn
+            //this stores the enemy type
+            wave[i][0] = 1;
+            //these store the time between next spawn
             wave[i][1] = 600;
+            //
             waves.add(new Enemy(path));//int from wave[i][0] should go into the constructor
         }
         wave[1][1] = 100;

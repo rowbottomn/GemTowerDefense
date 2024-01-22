@@ -3,6 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * The UI is used by the user to select tower to place on the map
  * and see the cash, gems and enemy kills.
+ * NR 1.18.2024 adding black background and way to construct the UI size.
+ * Add this to the world and position the ui elements based off its position.
  * 
  * @author (Benjamin Callaghan) 
  * @version (v1.00)
@@ -12,6 +14,9 @@ public class UI extends Actor
     private int cash = 0;
     private int gems = 0;
     private int eKills = 0;
+    private int width = 210;
+    private int height = 600;
+    
     private UI_Button[][] towerBoxs;
     private static final int towerBoxsNum = 4;
     public Label l1, l2, l3;
