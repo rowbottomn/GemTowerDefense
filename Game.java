@@ -31,10 +31,14 @@ public class Game extends World
 
         tower1 = new Basic_Tower();
         
+        
+        
         base = new BaseObjective();
         addObject(spawner,-60,60);
         addObject(tower1,600,300);
         addObject(new Basic_Tower(), 300, 500);
+        addObject(new TankEnemy(spawner.getPath()),10,10);
+        addObject(new SpeedyEnemy(spawner.getPath()),10,10);
         
         setupGUI();
 

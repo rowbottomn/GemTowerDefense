@@ -15,6 +15,8 @@ public class SpawnerWPath extends Spawner
     
     private ArrayList<Enemy> waves = new ArrayList<Enemy>();//a arraylist of basic enemies
     
+
+    
     String fileName;//the file of the waypoints
     
     int[][] wave = new int[10][2];
